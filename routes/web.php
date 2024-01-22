@@ -37,6 +37,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified', 
 
                 Route::get('/manage', 'manage')->name('manage');
 
+                Route::get('/get-categories', 'get_categories')->name('get-categories');
+
                 Route::post('/store', 'store')->name('store');
 
             });

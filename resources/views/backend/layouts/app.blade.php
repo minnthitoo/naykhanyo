@@ -474,6 +474,6 @@
 
 {!! Toastr::message() !!}
 
-@yield('scripts')
+@stack('scripts')
 
 </html>

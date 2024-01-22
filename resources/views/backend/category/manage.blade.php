@@ -32,6 +32,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -40,12 +41,7 @@
             </div>
         </div>
     </div>
+    @include('backend.category.conponents.scripts')
 @endsection
 
-@section('scripts')
-    <script>
-        $(document).ready(function(){
-            $('#table').DataTable();
-        })
-    </script>
-@endsection
+
