@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Services\CategoryService;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -26,6 +27,10 @@ class AdminCategoryController extends Controller
     public function store(Request $request){
         $this->categoryValidation($request);
         $result = $this->service->store($request->except('_token'));
+        if($result){
+            Toastr::success('Created successfully', 'Category Create');
+            return redirect()->back();
+        }
     }
 
     // validation
