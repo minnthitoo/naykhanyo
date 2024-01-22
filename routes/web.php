@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminCategoryController;
 use App\Http\Controllers\Backend\AdminDashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified', 
             // admin dashboard
             Route::controller(AdminDashboardController::class)->group(function(){
                 Route::get('dashboard', 'dashboard')->name('dashboard');
+            });
+
+            // admin category
+            Route::controller(AdminCategoryController::class)->prefix('category')->name('category.')->group(function(){
+
+                Route::get('/manage', 'manage')->name('manage');
+
+                Route::post('/store', 'store')->name('store');
+
             });
 
         });
