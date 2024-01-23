@@ -31,4 +31,11 @@ class PoemRepository{
         }
     }
 
+    public function get_poems_from_api(){
+        $poems = Poem::with(['category' => function($query){
+            $query->select('id', 'name');
+        }])->select('id', 'title', 'content', 'image', 'category_id', 'created_at as date')->where('status', 1)->orderBy('id', 'desc')->get();
+        return $poems;
+    }
+
 }

@@ -20,4 +20,8 @@ class PoemService{
         return $this->repository->status_change($data, $id);
     }
 
+    public function get_poems_from_api(){
+        return $this->repository->get_poems_from_api();
+    }
+
 }

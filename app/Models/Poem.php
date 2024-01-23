@@ -15,4 +15,8 @@ class Poem extends Model
         'category_id',
         'status'
     ];
+
+    public function category(){
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
 }
