@@ -27,9 +27,4 @@ class CategoryService{
         return $this->repository->categories();
     }
 
-    // get category
-    public function category($id){
-        return $this->repository->category($id);
-    }
-
 }

@@ -61,6 +61,11 @@ class AdminCategoryController extends Controller
         ->make();
     }
 
+    // get_categories_by_ajax
+    public function get_categories_by_ajax(){
+        $categories = $this->service->categories();
+    }
+
     // store
     public function store(Request $request){
         $this->categoryValidation($request);
