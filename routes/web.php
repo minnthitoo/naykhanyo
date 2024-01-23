@@ -55,6 +55,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified', 
 
                 Route::get('/list', 'list')->name('list');
                 Route::get('/get-data', 'get_data')->name('get-data');
+
+                Route::post('/status-change', 'status_change')->name('status-change');
             });
 
         });

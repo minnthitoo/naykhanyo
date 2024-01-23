@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Poem;
+use Exception;
 
 class PoemRepository{
     protected $poem;
@@ -16,6 +17,18 @@ class PoemRepository{
         $data['image'] = upload_image($data['image'], '/images/poems/');
         $poem = new Poem();
         $poem->fill($data)->save();
+    }
+
+    public function status_change($data, $id){
+        try{
+
+            $poem = Poem::find($id);
+            $poem->fill($data)->save();
+            return true;
+
+        }catch(Exception $e){
+            return false;
+        }
     }
 
 }

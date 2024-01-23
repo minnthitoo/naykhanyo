@@ -16,4 +16,8 @@ class PoemService{
         $this->repository->store($data);
     }
 
+    public function status_change($data, $id){
+        return $this->repository->status_change($data, $id);
+    }
+
 }

@@ -53,7 +53,7 @@ class AdminPoemController extends Controller
                 <div class="dropdown d-inline-block">
                     <button type="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" class="mb-2 me-2 dropdown-toggle btn btn-warning">Action</button>
                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu" style="">
-                        <button type="button" tabindex="0" class="dropdown-item edit" data-bs-toggle="modal" data-bs-target="#modal">Edit</button>
+                        <button type="button" tabindex="0" class="dropdown-item edit" data-bs-toggle="modal" data-bs-target="#modal">View</button>
                         <div class="modal-data" style="display: none;">
                             <div class="row mb-2">
                                 <div class="col">
@@ -84,6 +84,24 @@ class AdminPoemController extends Controller
         })
         ->rawColumns(['image', 'status', 'action'])
         ->make();
+    }
+
+    // status_change
+    public function status_change(Request $request){
+        $result = $this->service->status_change($request->except('_token'), $request->id);
+        if($result){
+
+            return response()->json([
+                'status' => true,
+            ], 200);
+
+        }else{
+
+            return response()->json([
+                'status' => false,
+            ], 404);
+
+        }
     }
 
     // validation
