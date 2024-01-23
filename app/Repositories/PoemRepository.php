@@ -13,7 +13,7 @@ class PoemRepository{
     }
 
     public function store($data){
-        $data['image'] = upload_image($data['image'], 'images/poems/');
+        $data['image'] = upload_image($data['image'], '/images/poems/');
         $poem = new Poem();
         $poem->fill($data)->save();
     }

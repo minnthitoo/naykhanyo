@@ -12,6 +12,40 @@
                     })
                 }
             })
+
+            $('#table').DataTable({
+                serverSide: true,
+                processing: true,
+                ajax: '{{ route('admin.poems.get-data') }}',
+                columns: [
+                    {
+                        data: 'id'
+                    },
+                    {
+                        data: 'title'
+                    },
+                    {
+                        data: 'image'
+                    },
+                    {
+                        data: 'status'
+                    },
+                    {
+                        data: 'action'
+                    }
+                ]
+            });
+
+            $(document).on('click', '.edit', function(){
+                $parent = $(this);
+                $data = $parent.closest('tr');
+                $modal_data = $data.find('.modal-data').clone();
+                $modal_data.show();
+
+                $('#modal-body').empty();
+                $('#modal-label').html('Poem');
+                $('#modal-body').append($modal_data);
+            })
         })
     </script>
 @endpush

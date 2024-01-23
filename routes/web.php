@@ -52,6 +52,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified', 
             Route::controller(AdminPoemController::class)->prefix('poems')->name('poems.')->group(function(){
                 Route::get('/create', 'create')->name('create');
                 Route::post('/create', 'store');
+
+                Route::get('/list', 'list')->name('list');
+                Route::get('/get-data', 'get_data')->name('get-data');
             });
 
         });

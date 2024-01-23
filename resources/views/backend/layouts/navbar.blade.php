@@ -40,7 +40,7 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="{{ route('admin.category.manage') }}" class="{{ (request()->segment(2) == 'poem') ? 'mm-active' : '' }}">
+                        <a href="{{ route('admin.poems.list') }}" class="{{ (request()->segment(2) == 'poems' && request()->segment(3) == 'list') ? 'mm-active' : '' }}">
                             <i class="metismenu-icon"></i>
                             Lists
                         </a>
