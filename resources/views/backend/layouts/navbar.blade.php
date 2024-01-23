@@ -24,7 +24,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ (request()->segment(2) == 'poem') ? 'mm-active' : '' }}">
+            <li class="{{ (request()->segment(2) == 'poems') ? 'mm-active' : '' }}">
                 <a href="#">
                     <i class="metismenu-icon pe-7s-news-paper"></i>
                     Poems
@@ -32,7 +32,7 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="{{ route('admin.category.manage') }}" class="{{ (request()->segment(2) == 'poem') ? 'mm-active' : '' }}">
+                        <a href="{{ route('admin.poems.create') }}" class="{{ (request()->segment(2) == 'poems' && request()->segment(3) == 'create') ? 'mm-active' : '' }}">
                             <i class="metismenu-icon"></i>
                             Create
                         </a>
