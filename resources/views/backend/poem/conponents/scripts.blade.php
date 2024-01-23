@@ -7,7 +7,7 @@
                 url: '{{ route('admin.category.get-categories-by-ajax') }}',
                 dataType: 'json',
                 success: function(response) {
-                    $.each(response, function(key, value) {
+                    $.each(response.data, function(key, value) {
                         $('#category').append('<option value=' + value.id + '>' + value.name + '</option>')
                     })
                 }

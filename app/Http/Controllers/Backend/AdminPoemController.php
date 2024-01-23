@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Services\PoemService;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,7 +26,9 @@ class AdminPoemController extends Controller
     // store
     public function store(Request $request){
         $this->poem_validation($request);
-        $result = $this->service->store($request->except('_token'));
+        $this->service->store($request->except('_token'));
+        Toastr::success('Created Successfully', 'Poem create');
+        return redirect()->back();
     }
 
     // validation

@@ -64,6 +64,10 @@ class AdminCategoryController extends Controller
     // get_categories_by_ajax
     public function get_categories_by_ajax(){
         $categories = $this->service->categories();
+        return response()->json([
+            'data' => $categories,
+            'status' => true
+        ], 200);
     }
 
     // store

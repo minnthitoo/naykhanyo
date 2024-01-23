@@ -12,11 +12,11 @@
     <div class="row mb-3">
         <div class="col-md-6 col-sm-12 offset-md-3">
             <div class="card p-3">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-2">
                         <label for="title" class="form-label">Tltle ( <span class="text-danger">*</span> )</label>
-                        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror">
+                        <input type="text" name="title" id="title" value="{{ old('title') }}" class="form-control @error('title') is-invalid @enderror">
                         @error('title')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group mb-2">
                         <label for="content" class="form-label">Content ( <span class="text-danger">*</span> )</label>
-                        <textarea name="content" id="content" rows="10" class="form-control @error('content') is-invalid @enderror"></textarea>
+                        <textarea name="content" id="content" rows="10" class="form-control @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
                         @error('content')
                         <div class="invalid-feedback">
                             {{ $message }}

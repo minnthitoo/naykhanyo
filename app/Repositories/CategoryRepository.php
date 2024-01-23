@@ -40,9 +40,4 @@ class CategoryRepository{
         return $categories;
     }
 
-    public function category($id){
-        $category = Category::select('id', 'name')->where('id', $id)->first();
-        return $category;
-    }
-
 }

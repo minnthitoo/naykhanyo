@@ -13,7 +13,7 @@ class PoemService{
     }
 
     public function store($data){
-        return $this->repository->store($data);
+        $this->repository->store($data);
     }
 
 }
