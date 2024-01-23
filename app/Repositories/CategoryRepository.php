@@ -29,4 +29,20 @@ class CategoryRepository{
         }
     }
 
+    public function status_change($data, $id){
+        $category = Category::find($id);
+        $category->fill($data)->save();
+        return true;
+    }
+
+    public function categories(){
+        $categories = Category::select('id', 'name')->where('status', 1)->orderBy('name')->get();
+        return $categories;
+    }
+
+    public function category($id){
+        $category = Category::select('id', 'name')->where('id', $id)->first();
+        return $category;
+    }
+
 }

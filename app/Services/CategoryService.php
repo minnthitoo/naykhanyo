@@ -17,4 +17,19 @@ class CategoryService{
         return $this->repository->store($data);
     }
 
+    // status change
+    public function status_change($data, $id){
+        return $this->repository->status_change($data, $id);
+    }
+
+    // get categories
+    public function categories(){
+        return $this->repository->categories();
+    }
+
+    // get category
+    public function category($id){
+        return $this->repository->category($id);
+    }
+
 }

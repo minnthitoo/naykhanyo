@@ -41,6 +41,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified', 
 
                 Route::post('/store', 'store')->name('store');
 
+                Route::post('/status-change', 'status_change')->name('status-change');
+
             });
 
         });
